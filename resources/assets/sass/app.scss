@@ -7,3 +7,11 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+ul.products {
+    li {
+        width: 200px;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
