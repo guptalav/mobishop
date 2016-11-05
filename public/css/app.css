@@ -5766,9 +5766,13 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-ul.products li {
-  width: 200px;
-  display: inline-block;
-  vertical-align: top; }
+ul.products {
+  text-align: center; }
+  ul.products li {
+    width: 264px;
+    display: inline-block;
+    vertical-align: top; }
+  ul.products button {
+    width: 100%; }
 
 /*# sourceMappingURL=app.css.map */
