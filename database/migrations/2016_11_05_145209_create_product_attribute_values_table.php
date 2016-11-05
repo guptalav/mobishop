@@ -16,12 +16,11 @@ class CreateProductAttributeValuesTable extends Migration
         Schema::create('product_attribute_values', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('product_id');
-            $table->unsignedInteger('product_attribute_type_id');
+            $table->unsignedInteger('product_attribute_id');
             $table->string('value');
-            $table->unique(['product_id', 'product_attribute_type_id', 'value'], 'product_eav_unique');
+            $table->unique(['product_id', 'product_attribute_id', 'value'], 'product_eav_unique');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('product_attribute_type_id')->references('id')->on('product_attribute_types');
-            $table->timestamps();
+            $table->foreign('product_attribute_id')->references('id')->on('product_attributes');
         });
     }
 
