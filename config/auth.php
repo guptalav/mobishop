@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Mobishop\User::class,
+            'model' => Mobishop\Users\User::class,
         ],
 
         // 'users' => [
