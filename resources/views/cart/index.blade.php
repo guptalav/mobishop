@@ -43,11 +43,7 @@ Cart
                     <tr>
                         <td class="table-image">
                             <a href="{{ url('products', [$item->model->slug]) }}">
-                                @if (!empty($item->model->images()->first()) && file_exists(public_path($item->model->images->first()->path)))
-                                    {{ Html::image($item->model->images->first()->path, $item->model->title, ['class' => 'img-responsive']) }}
-                                @else
-                                    {{ Html::image('images/upload/p/default.png', $item->model->title, ['class' => 'img-responsive']) }}
-                                @endif
+                                {{ Html::image(ProductHelper::getImagePath($item->model), $item->model->title, ['class' => 'img-responsive']) }}
                             </a>
                         </td>
                         <td>

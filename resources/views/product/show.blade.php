@@ -9,11 +9,7 @@
     <p><a href="{{ url('products') }}">Home</a> / {{ $product->title }}</p>
     <div class="row">
         <div class="col-md-6">
-            @if (!empty($product->images()->first()) && file_exists(public_path($product->images->first()->path)))
-                {{ Html::image($product->images->first()->path, $product->title, ['class' => 'img-responsive']) }}
-            @else
-                {{ Html::image('images/upload/p/default.png', $product->title, ['class' => 'img-responsive']) }}
-            @endif
+            {{ Html::image(ProductHelper::getImagePath($product), $product->title, ['class' => 'img-responsive']) }}
         </div>
         <div class="col-md-6 product">
             <h1 class="title">{{ $product->title }}</h1>

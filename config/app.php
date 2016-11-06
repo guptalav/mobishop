@@ -229,6 +229,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'ProductHelper' => Mobishop\Products\Helper::class,
     ],
 
 ];
