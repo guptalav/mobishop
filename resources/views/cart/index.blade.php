@@ -97,8 +97,6 @@ Cart
             <a href="/products" class="btn btn-primary btn-lg">Continue Shopping</a>
         @endif
 
-        <div class="spacer"></div>
-
     </div>
 
 @endsection

@@ -63,7 +63,14 @@
         </nav>
 
         @yield('content')
+
     </div>
+
+    <footer>
+        <div class="container">
+            <p class="text-muted">By <a href="http://lavgupta.me">Lav Gupta</a></p>
+        </div>
+    </footer>
 
     <script src="{{ elixir('js/app.js') }}"></script>
     @yield('extra-js')

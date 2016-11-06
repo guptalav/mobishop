@@ -19,3 +19,5 @@ Route::resource('/products', 'ProductController', ['only' => ['index', 'show']])
 
 Route::resource('/carts', 'CartController', ['only' => ['index', 'store', 'update', 'destroy']]);
 Route::delete('emptyCart', 'CartController@emptyCart');
+
+Route::resource('/checkout', 'CheckoutController', ['only' => ['index']]);
