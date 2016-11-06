@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function show($slug)
     {
-        $product = Product::where(['slug' => $slug, 'active' => 1])->get()->first();
+        $product = Product::where(['slug' => $slug, 'active' => 1])->firstOrFail();
 
         $attributes = [];
         foreach ($product->attributes as $attribute) {
