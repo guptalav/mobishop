@@ -5791,6 +5791,25 @@ div.product .price {
   font-size: 20px;
   font-weight: bold; }
 
+.checkout .list-group-item {
+  height: 180px; }
+
+.checkout .cart {
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #d3e0e9; }
+
+.checkout .cart-heading {
+  display: inline-block; }
+
+.checkout .edit-cart {
+  margin: 22px 0; }
+
+.checkout .shipping {
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #d3e0e9; }
+
 footer {
   background-color: #fff;
   border-color: #d3e0e9;

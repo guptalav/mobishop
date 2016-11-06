@@ -33,7 +33,6 @@ Cart
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th class="column-spacer"></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -58,7 +57,6 @@ Cart
                             {{ Form::selectRange('quantity', 1, 5, $item->qty, ['class' => 'form-control quantity', 'data-id' => $item->rowId]) }}
                         </td>
                         <td>${{ $item->subtotal }}</td>
-                        <td class=""></td>
                         <td>
                             {{ Form::open([ 'url' => 'carts/'.$item->rowId, 'method' => 'delete' ]) }}
                                 {{ Form::submit('Remove', ['class' => 'btn btn-danger btn-sm']) }}
@@ -69,10 +67,9 @@ Cart
 
                     <tr class="border-bottom">
                         <td class="table-image"></td>
-                        <td style="padding: 40px;"></td>
+                        <td></td>
                         <td class="small-caps table-bg" style="text-align: right">Your Total</td>
                         <td class="table-bg">${{ Cart::subtotal() }}</td>
-                        <td class="column-spacer"></td>
                         <td></td>
                     </tr>
 
@@ -80,7 +77,7 @@ Cart
             </table>
 
             <a href="/products" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp;
-            <a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>
+            <a href="/checkout" class="btn btn-success btn-lg">Proceed to Checkout</a>
 
             <div style="float:right">
                 {{ Form::open([ 'url' => 'emptyCart', 'method' => 'delete' ]) }}
