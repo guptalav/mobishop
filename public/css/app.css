@@ -5781,4 +5781,14 @@ div.product .title {
 div.product .price {
   font-size: 28px; }
 
+.cart .table-image {
+  width: 150px; }
+
+.cart .quantity {
+  width: 80%; }
+
+.cart .prod-title {
+  font-size: 20px;
+  font-weight: bold; }
+
 /*# sourceMappingURL=app.css.map */

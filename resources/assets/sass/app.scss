@@ -8,25 +8,7 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-ul.products {
-    text-align: center;
+//Custom
+@import "product";
+@import "cart";
 
-    li {
-        width: 264px;
-        display: inline-block;
-        vertical-align: top;
-    }
-    button {
-        width: 100%;
-    }
-}
-
-div.product {
-    .title {
-        margin-top: 0;
-    }
-
-    .price {
-        font-size: 28px;
-    }
-}
