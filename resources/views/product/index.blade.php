@@ -16,7 +16,6 @@
                             <h4 class="text-center">{{ $product->title }}</h4>
                             <p class="text-center">${{ $product->price }}</p>
                         </a>
-                        <p class="text-center"><button type="button" class="btn btn-primary">ADD TO CART</button></p>
                     </li>
                 @endforeach
             </ul>

@@ -7,11 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mobishop - @yield('title')</title>
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
 </head>
 <body>
     <div id="app">
@@ -61,6 +56,7 @@
                                 </ul>
                             </li>
                         @endif
+                        <li class="cart"><a href="{{ url('/carts') }}">Cart ({{ Cart::count() }})</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,5 +66,6 @@
     </div>
 
     <script src="{{ elixir('js/app.js') }}"></script>
+    @yield('extra-js')
 </body>
 </html>

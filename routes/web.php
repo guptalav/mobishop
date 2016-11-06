@@ -15,4 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('/products', 'ProductController');
+Route::resource('/products', 'ProductController', ['only' => ['index', 'show']]);
+
+Route::resource('/carts', 'CartController', ['only' => ['index', 'store', 'update', 'destroy']]);
+Route::delete('emptyCart', 'CartController@emptyCart');

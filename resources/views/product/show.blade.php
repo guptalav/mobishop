@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <p><a href="{{ url('products') }}">Home</a> / {{ $product->title }}</p>
     <div class="row">
         <div class="col-md-6">
             @if (!empty($product->images()->first()) && file_exists(public_path($product->images->first()->path)))
@@ -15,19 +16,26 @@
             <p>{!! $product->short_description !!}</p>
             <h3 class="price">${{ $product->price }}</h3>
 
-            @foreach($attributes as $key => $value)
+            {{ Form::open([ 'route' => 'carts.store', 'method' => 'post' ]) }}
+                @foreach($attributes as $key => $value)
+                    <div class="form-group">
+                        {{ Form::label(strtolower($key), $key) }}
+                        {{ Form::select('attributes[' . $key . ']', $value, null, ['class' => 'form-control', 'id' => strtolower($key)]) }}
+                    </div>
+                @endforeach
+
                 <div class="form-group">
-                    {{ Form::label($key, $key) }}
-                    {{ Form::select($key, $value, null, ['class' => 'form-control']) }}
+                    {{ Form::label('quantity', 'Quantity') }}
+                    {{ Form::selectRange('quantity', 1, 5, null, ['class' => 'form-control']) }}
                 </div>
-            @endforeach
 
-            <div class="form-group">
-                {{ Form::label('Quantity', 'Quantity') }}
-                {{ Form::selectRange('Quantity', 1, 5, null, ['class' => 'form-control']) }}
-            </div>
+                {{ Form::hidden('id', $product->id) }}
+                {{ Form::hidden('title', $product->title) }}
+                {{ Form::hidden('price', $product->price) }}
+                {{ Form::hidden('image_path', $product->images->first()->path) }}
 
-            <p><button type="button" class="btn btn-primary">ADD TO CART</button></p>
+                <p>{{ Form::submit('ADD TO CART', ['class' => 'btn btn-primary']) }}</p>
+            {{ Form::close() }}
         </div>
         <div class="row">
             <div class="col-md-12">
