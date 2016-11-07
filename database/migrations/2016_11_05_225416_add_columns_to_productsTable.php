@@ -15,7 +15,7 @@ class AddColumnsToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->string('slug')->after('price')->unique();
-            $table->string('short_description')->before('description');
+            $table->string('short_description')->after('title');
         });
     }
 
