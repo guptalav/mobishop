@@ -19,8 +19,8 @@ class CreateProductAttributeValuesTable extends Migration
             $table->unsignedInteger('product_attribute_id');
             $table->string('value');
             $table->unique(['product_id', 'product_attribute_id', 'value'], 'product_eav_unique');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('product_attribute_id')->references('id')->on('product_attributes');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('product_attribute_id')->references('id')->on('product_attributes')->onDelete('cascade');
         });
     }
 

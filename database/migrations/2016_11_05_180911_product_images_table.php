@@ -17,7 +17,7 @@ class ProductImagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('product_id');
             $table->string('path');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
