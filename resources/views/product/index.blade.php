@@ -6,6 +6,10 @@ Products
 
 @section('content')
 <div class="container">
+    <div class="jumbotron text-center clearfix">
+        <h2>Example Laravel Ecommerce Application</h2>
+        <p>An example Laravel App to demo the basic functionality of an e-commerce website.</p>
+    </div>
     @foreach ($products->chunk(4) as $items)
         <div class="row">
             @foreach ($items as $product)
