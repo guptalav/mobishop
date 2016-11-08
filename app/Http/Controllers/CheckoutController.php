@@ -8,6 +8,11 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkout');
+    }
+
     /**
      * Display a listing of the resource.
      *
