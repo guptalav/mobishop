@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Mobishop\Events\SomeEvent' => [
-            'Mobishop\Listeners\EventListener',
+        'Mobishop\Events\OrderConfirmed' => [
+            'Mobishop\Listeners\SendOrderNotification',
         ],
     ];
 
@@ -26,7 +26,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        //
     }
 }

@@ -3,6 +3,7 @@
 namespace Mobishop\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mobishop\Events\OrderConfirmed;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
@@ -34,9 +35,12 @@ class CheckoutController extends Controller
             'postal' => 'required|max:6'
         ]);
 
-        //save order
+        //TODO: save order
 
-        //send email
-        
+        //send email (Passing cart::content for now, ideally order and/or user object must be used here)
+        event(new OrderConfirmed($request->get('email'), Cart::content()));
+        Cart::destroy();
+
+        return view('checkout.success');
     }
 }
