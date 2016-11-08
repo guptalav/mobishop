@@ -6,20 +6,22 @@ Products
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="products">
-                @foreach ($products as $product)
-                    <li>
-                        <a href="{{ URL::route('products.show', ['slug' => $product->slug]) }}">
-                            {{ Html::image(ProductHelper::getImagePath($product), $product->title, ['class' => 'img-responsive']) }}
-                            <h4 class="text-center">{{ $product->title }}</h4>
-                            <p class="text-center">${{ $product->price }}</p>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+    @foreach ($products->chunk(4) as $items)
+        <div class="row">
+            @foreach ($items as $product)
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption text-center">
+                            <a class="no-underline" href="{{ URL::route('products.show', ['slug' => $product->slug]) }}">
+                                {{ Html::image(ProductHelper::getImagePath($product), $product->title, ['class' => 'img-responsive']) }}
+                                <h4 class="text-center">{{ $product->title }}</h4>
+                                <p class="text-center">${{ $product->price }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    </div>
+    @endforeach
 </div>
 @endsection

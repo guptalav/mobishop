@@ -5766,20 +5766,14 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-ul.products {
-  text-align: center; }
-  ul.products li {
-    width: 264px;
-    display: inline-block;
-    vertical-align: top; }
-  ul.products button {
-    width: 100%; }
-
 div.product .title {
   margin-top: 0; }
 
 div.product .price {
   font-size: 28px; }
+
+.no-underline:hover {
+  text-decoration: none; }
 
 .cart .table-image {
   width: 150px; }
@@ -5810,10 +5804,22 @@ div.product .price {
   background-color: #fff;
   border: 1px solid #d3e0e9; }
 
+html, body {
+  height: 100%; }
+
+#app {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em; }
+
+footer, .push {
+  height: 4em; }
+
 footer {
   background-color: #fff;
   border-color: #d3e0e9;
   padding: 20px 0;
-  margin-top: 40px; }
+  margin-top: 20px; }
 
 /*# sourceMappingURL=app.css.map */

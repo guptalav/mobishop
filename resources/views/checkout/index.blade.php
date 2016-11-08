@@ -57,7 +57,7 @@ Checkout
                     </div>
                     <div class="col-sm-6">
                         <h4 class="list-group-item-heading">{{ $item->name }}</h4>
-                        <p>{{ $item->model->short_description }}</p>
+                        <p>{!! $item->model->short_description !!}</p>
                         @foreach ($item->options as $key => $value)
                             <p><strong>{{ $key }}:</strong> {{ $value }}</p>
                         @endforeach

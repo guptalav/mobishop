@@ -36,11 +36,11 @@
                 <p>{{ Form::submit('ADD TO CART', ['class' => 'btn btn-primary']) }}</p>
             {{ Form::close() }}
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Product Description</h3>
-                {!! $product->description !!}
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Product Description</h3>
+            {!! $product->description !!}
         </div>
     </div>
 </div>
