@@ -17,7 +17,7 @@
             <h3 class="price">${{ $product->price }}</h3>
 
             {{ Form::open([ 'route' => 'carts.store', 'method' => 'post' ]) }}
-                @foreach($attributes as $key => $value)
+                @foreach(ProductHelper::getAttributes($product) as $key => $value)
                     <div class="form-group">
                         {{ Form::label(strtolower($key), $key) }}
                         {{ Form::select('attributes[' . $key . ']', $value, null, ['class' => 'form-control', 'id' => strtolower($key)]) }}

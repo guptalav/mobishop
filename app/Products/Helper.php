@@ -12,4 +12,15 @@ class Helper
             
         return 'images/upload/p/default.png';
     }
+
+    public static function getAttributes(Product $product)
+    {
+        $attributes = [];
+        
+        foreach ($product->attributes as $attribute) {
+            $attributes[$attribute->name][$attribute->pivot->value] = $attribute->pivot->value;
+        }
+
+        return $attributes;
+    }
 }

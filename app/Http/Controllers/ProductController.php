@@ -29,11 +29,6 @@ class ProductController extends Controller
     {
         $product = Product::where(['slug' => $slug, 'active' => 1])->firstOrFail();
 
-        $attributes = [];
-        foreach ($product->attributes as $attribute) {
-            $attributes[$attribute->name][$attribute->pivot->value] = $attribute->pivot->value;
-        }
-
-        return view('product.show', compact("product", "attributes"));
+        return view('product.show', compact("product"));
     }
 }
