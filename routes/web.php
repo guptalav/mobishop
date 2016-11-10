@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/products', 'ProductController', ['only' => ['index', 'show']]);
+Route::resource('/bundles', 'BundleController', ['only' => ['index', 'show']]);
 
 Route::resource('/carts', 'CartController', ['only' => ['index', 'store', 'update', 'destroy']]);
 Route::delete('emptyCart', 'CartController@emptyCart');

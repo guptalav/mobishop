@@ -53,14 +53,22 @@ Checkout
                 <div class="list-group">
                   <a href="{{ url('products', [$item->model->slug]) }}" class="list-group-item">
                     <div class="col-sm-4">
-                        {{ Html::image(ProductHelper::getImagePath($item->model), $item->model->title, ['class' => 'img-responsive']) }}
+                        @if ($item->options->type != 'bundle')
+                            {{ Html::image(ProductHelper::getImagePath($item->model), $item->model->title, ['class' => 'img-responsive']) }}
+                        @else
+                            {{ Html::image($item->model->image_path, $item->model->title, ['class' => 'img-responsive']) }}
+                        @endif;
                     </div>
                     <div class="col-sm-6">
                         <h4 class="list-group-item-heading">{{ $item->name }}</h4>
                         <p>{!! $item->model->short_description !!}</p>
-                        @foreach ($item->options as $key => $value)
-                            <p><strong>{{ $key }}:</strong> {{ $value }}</p>
-                        @endforeach
+                        @if ($item->options->type != 'bundle')
+                            @foreach ($item->options as $key => $value)
+                                @if ($key != 'type')
+                                    <div><strong>{{ $key }}:</strong> {{ $value }}</div>
+                                @endif
+                            @endforeach
+                        @endif
                     </div>
                     <div class="col-sm-2">
                         <div><strong>${{ $item->subtotal }}</strong></div>

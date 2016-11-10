@@ -42,16 +42,24 @@ Cart
                     <tr>
                         <td class="table-image">
                             <a href="{{ url('products', [$item->model->slug]) }}">
-                                {{ Html::image(ProductHelper::getImagePath($item->model), $item->model->title, ['class' => 'img-responsive']) }}
+                                @if ($item->options->type != 'bundle')
+                                    {{ Html::image(ProductHelper::getImagePath($item->model), $item->model->title, ['class' => 'img-responsive']) }}
+                                @else
+                                    {{ Html::image($item->model->image_path, $item->model->title, ['class' => 'img-responsive']) }}
+                                @endif
                             </a>
                         </td>
                         <td>
                             <a class="prod-title" href="{{ url('products', [$item->model->slug]) }}">
                                 {{ $item->name }}
                             </a>
-                            @foreach ($item->options as $key => $value)
-                                <p><strong>{{ $key }}:</strong> {{ $value }}</p>
-                            @endforeach
+                            @if ($item->options->type != 'bundle')
+                                @foreach ($item->options as $key => $value)
+                                    @if ($key != 'type')
+                                        <div><strong>{{ $key }}:</strong> {{ $value }}</div>
+                                    @endif
+                                @endforeach
+                            @endif
                         </td>
                         <td>
                             {{ Form::selectRange('quantity', 1, 5, $item->qty, ['class' => 'form-control quantity', 'data-id' => $item->rowId]) }}

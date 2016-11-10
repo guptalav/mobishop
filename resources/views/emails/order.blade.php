@@ -9,9 +9,13 @@
         <ul>
             <li>
                 Product: {{ $item->name }} &nbsp
-                @foreach ($item->options as $key => $value)
-                    ({{ $key }}: {{ $value }}) &nbsp
-                @endforeach
+                @if ($item->options->type != 'bundle')
+                    @foreach ($item->options as $key => $value)
+                        @if ($key != 'type')
+                            (<strong>{{ $key }}:</strong> {{ $value }})
+                        @endif
+                    @endforeach
+                @endif
             </li>
             <li>Qty: {{ $item->qty }}</li>
             <li>Total: {{ $item->subtotal }}</li>

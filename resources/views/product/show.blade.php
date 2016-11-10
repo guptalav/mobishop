@@ -32,6 +32,7 @@
                 {{ Form::hidden('id', $product->id) }}
                 {{ Form::hidden('title', $product->title) }}
                 {{ Form::hidden('price', $product->price) }}
+                {{ Form::hidden('attributes[type]', 'product') }}
 
                 <p>{{ Form::submit('ADD TO CART', ['class' => 'btn btn-primary']) }}</p>
             {{ Form::close() }}
