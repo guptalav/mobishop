@@ -17,7 +17,7 @@ class SendOrderNotification implements ShouldQueue
      */
     public function handle(OrderConfirmed $event)
     {
-        Mail::send('emails.order', ['cart' => $event->cart], function ($m) use ($event) {
+        Mail::queue('emails.order', ['cart' => $event->cart], function ($m) use ($event) {
             $m->from('noreply@mobishop.dev', 'Mobishop');
             $m->to($event->email, $event->email)->subject('Thank you for your order.');
         });
