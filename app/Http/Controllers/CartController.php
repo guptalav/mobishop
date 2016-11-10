@@ -4,6 +4,7 @@ namespace Mobishop\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
+use Mobishop\Carts\Helper as CartHelper;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
@@ -27,20 +28,17 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $search = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->input('id');
+            return $cartItem->id === $request->input('id') &&
+                $cartItem->options->type === $request->get('attributes')['type'];
         });
 
         if ($search->count()) {
             return redirect('carts')->withSuccessMessage('Item is already in your cart!');
         }
 
-        Cart::add(
-            $request->input('id'),
-            $request->input('title'),
-            $request->input('quantity'),
-            $request->input('price'),
-            ($request->input('attributes')) ? $request->input('attributes') : []
-        )->associate('\Mobishop\Products\Product');
+        $attributes = $request->get('attributes');
+
+        CartHelper::add($request->all());
 
         return redirect('carts')->withSuccessMessage('Item was added to your cart!');
     }
