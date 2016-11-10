@@ -15,6 +15,7 @@ class BundlesTableSeeder extends Seeder
         DB::table('bundles')->insert([
             'id' => 1,
             'title' => 'iOS Bundle',
+            'short_description' => '<div> Short description for the product goes here </div>',
             'description' => '<p> Long description for the bundle goes here. </p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>',
             'slug' => 'ios-bundle',
             'discount' => '10',
@@ -27,6 +28,7 @@ class BundlesTableSeeder extends Seeder
         DB::table('bundles')->insert([
             'id' => 2,
             'title' => 'Android Bundle',
+            'short_description' => '<div> Short description for the product goes here </div>',
             'description' => '<p> Long description for the bundle goes here. </p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>',
             'slug' => 'android-bundle',
             'discount' => '15',

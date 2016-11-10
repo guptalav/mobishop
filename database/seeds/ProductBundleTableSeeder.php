@@ -25,13 +25,13 @@ class ProductBundleTableSeeder extends Seeder
 
         DB::table('product_bundle')->insert([
             'id' => 3,
-            'product_id' => 7,
+            'product_id' => 4,
             'bundle_id' => 2
         ]);
 
         DB::table('product_bundle')->insert([
             'id' => 4,
-            'product_id' => 8,
+            'product_id' => 6,
             'bundle_id' => 2
         ]);
     }

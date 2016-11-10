@@ -17,6 +17,7 @@ class CreateBundlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
+            $table->string('short_description');
             $table->text('slug');
             $table->double('discount', 10, 2);
             $table->string('image_path');
