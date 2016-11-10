@@ -35,6 +35,8 @@ class CheckoutTest extends TestCase
     /** @test */
     public function it_can_buy()
     {
+        $this->withoutEvents();
+
         $this->visit('/products/iphone-7')
             ->press('ADD TO CART')
             ->seePageIs('/carts')
