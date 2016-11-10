@@ -9,7 +9,7 @@
 1. `php artisan migrate && php artisan db:seed`
 1. (Optional) Run `vendor/bin/phpunit` to run some application tests.
 1. (Optional) Edit your hosts file and add `[LOCAL_IP_ADDRESS] mobishop.dev`
-1. Run `php artisan queue:listen` to listen for queues (Used for emails)
+1. Run `php artisan queue:listen` and leave it running. This will use db for queuing emails.
 1. Visit `mobishop.dev or [LOCAL_IP_ADDRESS]` in your browser
 
 ## Environment file
